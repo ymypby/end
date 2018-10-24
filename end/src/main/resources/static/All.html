@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="All.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v2.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZF6umbyfyuGU8uiritubUuv0vEwcPGGH"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+    <script type="text/javascript" src="CurveWithArrow.js"></script>
+    <script type="text/javascript" src="getInfo.js"></script>
+    <script type="text/javascript" src="Gantt.js"></script>
+</head>
+<body>
+<div id="header" class = "row" >
+        <form class="bs-example bs-example-form  form-inline" role="form">
+            <div class="input-group ">
+                <span class="input-group-addon">开始时间</span>
+                <input type="text" id = "startDate"class="form-control" placeholder="">
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon">结束时间</span>
+                <input type="text" id = "endDate"class="form-control">
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon">卡号</span>
+                <input type="text" id = "cardNo"class="form-control">
+            </div>
+            <button type="button" id ="searchButton" class="btn btn-primary">搜索</button>
+            <button type="button"  id="ganttButton" class="btn btn-primary"  >Gantt图</button>
+            <button type="button"  id="traceButton" class="btn btn-primary">轨迹</button>
+            <button type="button"  id="origionButton" class="btn btn-primary"  >原始数据</button>
+            <button type="button"  id="mergeButton" class="btn btn-primary">合并数据</button>
+        </form>
+</div>
+<div id="Gantt">
+    <div class ="row row1"  style="padding: 0 400px 0;" id = "num">
+        <form class="bs-example bs-example-form  form-inline" role="form">
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:white "></span>
+            </div>
+        </form>
+    </div>
+    <div class ="row row1"  style="padding: 0 400px 0; " id = "label">
+        <form class="bs-example bs-example-form  form-inline" role="form">
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:rgb(91, 55, 46) "></span>
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon" style="background-color:rgb(152, 67, 42) "></span>
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon" style="background-color:rgb(211, 80, 40) "></span>
+            </div>
+            <div class="input-group " >
+                <span class="input-group-addon" style="background-color:rgb(230, 108, 51) "></span>
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon" style="background-color:rgb(236, 143, 67) "></span>
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon" style="background-color:rgb(242, 177, 84) "></span>
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon" style="background-color:rgb(249, 212, 100); "></span>
+            </div>
+            <div class="input-group ">
+                <span class="input-group-addon" style="background-color:rgb(253, 236, 124) "></span>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<div id="container">
+    <div id="Trace">
+    </div>
+    <div id ="colorScalelinear">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="orange_red" x1="100%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#CC3333;stop-opacity:1"/>
+                    <stop offset="100%" style="stop-color:#99CC66;stop-opacity:1"/>
+                </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" style="fill:url('#orange_red')"/>
+        </svg>
+    </div>
+    <div id="word">
+        <p id="max">15</p>
+        <p id="min">1</p>
+    </div>
+</div>
+
+<!--<div id="mergeContainer">-->
+    <!--<div id="mergeTrace">-->
+    <!--</div>-->
+    <!--<div id ="mergeColorScalelinear">-->
+        <!--<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">-->
+            <!--<defs>-->
+                <!--<linearGradient id="orange_red" x1="100%" y1="0%" x2="100%" y2="100%">-->
+                    <!--<stop offset="0%" style="stop-color:#CC3333;stop-opacity:1"/>-->
+                    <!--<stop offset="100%" style="stop-color:#99CC66;stop-opacity:1"/>-->
+                <!--</linearGradient>-->
+            <!--</defs>-->
+            <!--<rect width="100%" height="100%" style="fill:url('#orange_red')"/>-->
+        <!--</svg>-->
+    <!--</div>-->
+    <!--<div id="mergeWord">-->
+        <!--<p id="mergeMax">15</p>-->
+        <!--<p id="mergerMin">1</p>-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+</html>
+<script type="text/javascript">
+    var ajax = new INFO.AjaxInfo();
+    var map = new BMap.Map("Trace");  // 创建Map实例
+    var cardNo;
+    var minDay;
+    var maxDay;
+    var data1 = {
+        'cardNo': cardNo,
+        'minDay': minDay,
+        'maxDay': maxDay
+    };
+    var mergeDataset;
+    var origionDataset;
+    var stations = ajax.getData("http://localhost:8080/station_html");;
+    var mergeUrl = "http://localhost:8080/merge_html";
+    var origionUrl = "http://localhost:8080/origion_html";
+//    地图初始化
+    var top_left_navigation = new BMap.NavigationControl({offset:new BMap.Size(10,50)});
+    map.centerAndZoom("杭州",14);
+    map.enableScrollWheelZoom(true);
+    map.addControl(top_left_navigation);
+    //    gantt图初始化
+    var gantt;
+    var tasks;
+    var markTasks;
+    var sample=[];
+    var format1 = "%H:%M:%S";
+    var taskStatus = {
+        "A" : "a",
+        "B" : "b",
+        "C" : "c",
+        "D" : "d",
+        "E" : "e",
+        "F" : "f",
+        "G" : "g",
+        "H" : "h"
+    };
+    var taskNames =[];
+    var taskNameColor = [];
+    (function(){
+        gantt = d3.gantt().taskTypes(taskNames).taskStatus(taskStatus).height(450).width(800);
+        gantt([]);
+    })();
+
+    function drawTrace(traceDataset){
+        var stationsMap = new Object();
+        var circles = [];
+        var array = [];
+        for(var i=0;i<stations.length;i++){
+            stationsMap[stations[i].stationid] = stations[i];
+        }
+        circles = drawMustPoints(traceDataset,stationsMap);
+        for(var i=0;i<circles.length;i++){
+            map.addOverlay(circles[i]);
+        }
+        array = drawCurves(traceDataset,stationsMap);
+        for(var i=0;i<array[0].length;i++){
+            map.addOverlay(array[0][i]);
+            map.addOverlay(array[1][i])
+//            map.addOverlay(array[0][i].vectorBCArrow);
+        }
+    };
+
+    function  drawGantt(ganttDataset) {
+        var str = '';
+        var i =0;
+        taskNames = [];
+        str = maxDay;
+//        生成y轴刻度值
+        var date = new Date(d3.time.format("%Y-%m-%d").parse(str));
+        while(str > minDay){
+            str = d3.time.format("%Y-%m-%d")(new Date(d3.time.day.offset(date,-i)));
+            taskNames.push(str);
+            i = i+1;
+        }
+        tasks = ganttDataset[0];
+        markTasks = ganttDataset[2];
+        sample=[];
+//        生成标签总计数量
+        for(var vars in ganttDataset[1]) {
+            sample.push(ganttDataset[1][vars]);
+        }
+        if(sample.length<8){
+            for(var i = sample.length-1;i<8;i++){
+                sample[i] = '-';
+            }
+        }else{
+            sample[7]='-';
+        }
+
+        if(tasks.length!=0 && !(tasks[0].endDate instanceof  Date)){
+            for(var i=0;i<tasks.length;i++){
+                tasks[i].endDate =new Date(d3.time.format(format1).parse(tasks[i].endDate));
+                tasks[i].startDate = new Date(d3.time.format(format1).parse(tasks[i].startDate));
+            }
+        }
+        if(markTasks.length!=0 && !(markTasks[0].endDate instanceof  Date)){
+            for(var i=0;i<markTasks.length;i++){
+                markTasks[i].endDate =new Date(d3.time.format(format1).parse(markTasks[i].endDate));
+                markTasks[i].startDate = new Date(d3.time.format(format1).parse(markTasks[i].startDate));
+            }
+        }
+        gantt.taskTypes(taskNames);
+        gantt.redraw(tasks,markTasks);
+        taskNameColor = [];
+        for(var i=0;i<taskNames.length;i++){
+            if(new Date(d3.time.format("%Y-%m-%d").parse(taskNames[i])).getDay() == 0 || new Date(d3.time.format("%Y-%m-%d").parse(taskNames[i])).getDay() == 6){
+                taskNameColor[i] = "red";
+            }else{
+                taskNameColor[i] = "black";
+            }
+        }
+        d3.select(".y").selectAll("text").data(taskNameColor).style({
+            'fill':function (d,i) {
+                return d;
+            }
+        });
+        d3.select("#num").selectAll('.input-group-addon').data(sample).text(function (d) {
+            return d;
+        });
+    };
+    d3.select('#searchButton').on('click',function(){
+        cardNo = d3.select("#cardNo").property('value');
+        minDay = d3.select("#startDate").property('value');
+        maxDay = d3.select("#endDate").property('value');
+        data1 = {
+            'cardNo': cardNo,
+            'minDay': minDay,
+            'maxDay': maxDay
+        };
+        origionDataset= ajax.postData(origionUrl,data1);
+        mergeDataset = ajax.postData(mergeUrl,data1);
+        (function(){
+            d3.select('#Gantt').style('display','block');
+            d3.select('#container').style('display','none');
+            drawGantt(origionDataset);
+        })();
+        console.log(origionDataset);
+        console.log( mergeDataset );
+    });
+    <!--轨迹-->
+    d3.select('#traceButton').on('click',function(){
+        d3.select('#container').style('display','block');
+        d3.select('#Gantt').style('display','none');
+        drawTrace(origionDataset);
+    });
+    <!--甘特图-->
+    d3.select('#ganttButton').on('click',function(){
+        d3.select('#Gantt').style('display','block');
+        d3.select('#container').style('display','none');
+        drawGantt(origionDataset);
+    });
+//    合并轨迹
+    d3.select('#mergeButton').on('click',function(){
+        map.clearOverlays();
+        drawTrace(mergeDataset);
+        drawGantt(mergeDataset);
+    });
+    d3.select('#origionButton').on('click',function(){
+        map.clearOverlays();
+        drawTrace(origionDataset);
+        drawGantt(origionDataset);
+    });
+</script>

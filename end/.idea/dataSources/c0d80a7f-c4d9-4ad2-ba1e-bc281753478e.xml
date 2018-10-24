@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Oracle - @localhost">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="2.6">
+    <schema id="1" name="C##YMYEND">
+      <object-id>106</object-id>
+      <created-timestamp>2018-10-03.22:37:38</created-timestamp>
+      <modified-timestamp>2018-10-06.17:16:12</modified-timestamp>
+      <visible>1</visible>
+      <introspection-timestamp>2018-10-08.21:28:45</introspection-timestamp>
+    </schema>
+    <schema id="2" name="PUBLIC">
+      <object-id>1</object-id>
+    </schema>
+    <schema id="3" name="SYS"/>
+    <schema id="4" name="AUDSYS">
+      <object-id>8</object-id>
+    </schema>
+    <schema id="5" name="SYSTEM">
+      <object-id>9</object-id>
+    </schema>
+    <schema id="6" name="OUTLN">
+      <object-id>13</object-id>
+    </schema>
+    <schema id="7" name="GSMADMIN_INTERNAL">
+      <object-id>21</object-id>
+    </schema>
+    <schema id="8" name="GSMUSER">
+      <object-id>22</object-id>
+    </schema>
+    <schema id="9" name="DIP">
+      <object-id>23</object-id>
+    </schema>
+    <schema id="10" name="REMOTE_SCHEDULER_AGENT">
+      <object-id>34</object-id>
+    </schema>
+    <schema id="11" name="DBSFWUSER">
+      <object-id>35</object-id>
+    </schema>
+    <schema id="12" name="ORACLE_OCM">
+      <object-id>39</object-id>
+    </schema>
+    <schema id="13" name="SYS$UMF">
+      <object-id>46</object-id>
+    </schema>
+    <schema id="14" name="DBSNMP">
+      <object-id>54</object-id>
+    </schema>
+    <schema id="15" name="APPQOSSYS">
+      <object-id>55</object-id>
+    </schema>
+    <schema id="16" name="GSMCATUSER">
+      <object-id>59</object-id>
+    </schema>
+    <schema id="17" name="GGSYS">
+      <object-id>60</object-id>
+    </schema>
+    <schema id="18" name="XDB">
+      <object-id>62</object-id>
+    </schema>
+    <schema id="19" name="ANONYMOUS">
+      <object-id>63</object-id>
+    </schema>
+    <schema id="20" name="WMSYS">
+      <object-id>72</object-id>
+    </schema>
+    <schema id="21" name="OJVMSYS">
+      <object-id>81</object-id>
+    </schema>
+    <schema id="22" name="CTXSYS">
+      <object-id>84</object-id>
+    </schema>
+    <schema id="23" name="ORDSYS">
+      <object-id>86</object-id>
+    </schema>
+    <schema id="24" name="ORDDATA">
+      <object-id>87</object-id>
+    </schema>
+    <schema id="25" name="ORDPLUGINS">
+      <object-id>88</object-id>
+    </schema>
+    <schema id="26" name="SI_INFORMTN_SCHEMA">
+      <object-id>89</object-id>
+    </schema>
+    <schema id="27" name="MDSYS">
+      <object-id>90</object-id>
+    </schema>
+    <schema id="28" name="OLAPSYS">
+      <object-id>93</object-id>
+    </schema>
+    <schema id="29" name="MDDATA">
+      <object-id>96</object-id>
+    </schema>
+    <schema id="30" name="SPATIAL_CSW_ADMIN_USR">
+      <object-id>98</object-id>
+    </schema>
+    <schema id="31" name="LBACSYS">
+      <object-id>101</object-id>
+    </schema>
+    <schema id="32" name="DVF">
+      <object-id>103</object-id>
+    </schema>
+    <schema id="33" name="DVSYS">
+      <object-id>1279990</object-id>
+    </schema>
+    <schema id="34" name="SYSBACKUP">
+      <object-id>2147483617</object-id>
+    </schema>
+    <schema id="35" name="SYSDG">
+      <object-id>2147483618</object-id>
+    </schema>
+    <schema id="36" name="SYSKM">
+      <object-id>2147483619</object-id>
+    </schema>
+    <schema id="37" name="SYSRAC">
+      <object-id>2147483620</object-id>
+    </schema>
+    <schema id="38" name="XS$NULL">
+      <object-id>2147483638</object-id>
+    </schema>
+    <sequence id="39" parent="1" name="SEQ_A_ID">
+      <object-id>73777</object-id>
+      <created-timestamp>2018-10-06.16:58:29</created-timestamp>
+      <modified-timestamp>2018-10-06.16:58:29</modified-timestamp>
+      <min-value>1</min-value>
+      <max-value>999999999999999</max-value>
+      <increment-by>1</increment-by>
+      <next-value>3721820</next-value>
+      <cache-size>-2147483648</cache-size>
+    </sequence>
+    <table id="40" parent="1" name="B_LEASEINFOHIS_BRIEF">
+      <object-id>73367</object-id>
+      <created-timestamp>2018-10-03.22:38:19</created-timestamp>
+      <modified-timestamp>2018-10-06.17:16:12</modified-timestamp>
+      <organization>HEAP</organization>
+    </table>
+    <table id="41" parent="1" name="B_STATIONINFO_BRIEF">
+      <object-id>73365</object-id>
+      <created-timestamp>2018-10-03.22:37:38</created-timestamp>
+      <modified-timestamp>2018-10-03.22:37:38</modified-timestamp>
+      <organization>HEAP</organization>
+    </table>
+    <column id="42" parent="40" name="ID">
+      <data-type>VARCHAR2(60)|0</data-type>
+    </column>
+    <column id="43" parent="40" name="CARDNO">
+      <data-type>VARCHAR2(16)|0</data-type>
+    </column>
+    <column id="44" parent="40" name="BIKEID">
+      <data-type>VARCHAR2(10)|0</data-type>
+    </column>
+    <column id="45" parent="40" name="LEASESTATION">
+      <data-type>VARCHAR2(16)|0</data-type>
+    </column>
+    <column id="46" parent="40" name="LEASETIME">
+      <data-type>VARCHAR2(19)|0</data-type>
+    </column>
+    <column id="47" parent="40" name="LEASEDAY">
+      <data-type>VARCHAR2(10)|0</data-type>
+    </column>
+    <column id="48" parent="40" name="LEASEHOUR">
+      <data-type>VARCHAR2(2)|0</data-type>
+    </column>
+    <column id="49" parent="40" name="RETURNSTATION">
+      <data-type>VARCHAR2(16)|0</data-type>
+    </column>
+    <column id="50" parent="40" name="RETURNTIME">
+      <data-type>VARCHAR2(19)|0</data-type>
+    </column>
+    <column id="51" parent="40" name="RETURNDAY">
+      <data-type>VARCHAR2(10)|0</data-type>
+    </column>
+    <column id="52" parent="40" name="RETURNHOUR">
+      <data-type>VARCHAR2(2)|0</data-type>
+    </column>
+    <column id="53" parent="40" name="GENERATEDID">
+      <mandatory>1</mandatory>
+      <data-type>NUMBER(*)|0</data-type>
+    </column>
+    <index id="54" parent="40" name="PK_GENERATEDID">
+      <object-id>73788</object-id>
+      <created-timestamp>2018-10-06.17:16:12</created-timestamp>
+      <modified-timestamp>2018-10-06.17:16:12</modified-timestamp>
+      <columns>GENERATEDID</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="55" parent="40" name="I_CARDNO_TIME">
+      <object-id>73371</object-id>
+      <created-timestamp>2018-10-03.22:40:13</created-timestamp>
+      <modified-timestamp>2018-10-03.22:40:13</modified-timestamp>
+      <columns>CARDNO
+LEASEDAY
+RETURNDAY</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="56" parent="40" name="I_CARDNO">
+      <object-id>73370</object-id>
+      <created-timestamp>2018-10-03.22:40:03</created-timestamp>
+      <modified-timestamp>2018-10-03.22:40:03</modified-timestamp>
+      <columns>CARDNO</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="57" parent="40" name="I_LEASESTATION">
+      <object-id>73373</object-id>
+      <created-timestamp>2018-10-03.22:40:58</created-timestamp>
+      <modified-timestamp>2018-10-03.22:40:58</modified-timestamp>
+      <columns>LEASESTATION</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="58" parent="40" name="I_LEASETIME">
+      <object-id>73368</object-id>
+      <created-timestamp>2018-10-03.22:39:30</created-timestamp>
+      <modified-timestamp>2018-10-03.22:39:30</modified-timestamp>
+      <columns>LEASETIME</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="59" parent="40" name="I_LEASEDAY">
+      <object-id>73372</object-id>
+      <created-timestamp>2018-10-03.22:40:39</created-timestamp>
+      <modified-timestamp>2018-10-03.22:40:39</modified-timestamp>
+      <columns>LEASEDAY</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="60" parent="40" name="I_RETURNSTATION">
+      <object-id>73374</object-id>
+      <created-timestamp>2018-10-03.22:41:07</created-timestamp>
+      <modified-timestamp>2018-10-03.22:41:07</modified-timestamp>
+      <columns>RETURNSTATION</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <index id="61" parent="40" name="I_RETURNTIME">
+      <object-id>73369</object-id>
+      <created-timestamp>2018-10-03.22:39:47</created-timestamp>
+      <modified-timestamp>2018-10-03.22:39:47</modified-timestamp>
+      <columns>RETURNTIME</columns>
+      <desc-columns></desc-columns>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <key id="62" parent="40" name="PK_GENERATEDID">
+      <modified-timestamp>2018-10-06.17:16:23</modified-timestamp>
+      <columns>GENERATEDID</columns>
+      <initially-deferred>1</initially-deferred>
+      <underlying-index>PK_GENERATEDID</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="63" parent="41" name="STATIONID">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR2(255)|0</data-type>
+    </column>
+    <column id="64" parent="41" name="STATIONNAME">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR2(225)|0</data-type>
+    </column>
+    <column id="65" parent="41" name="X">
+      <data-type>NUMBER(*)|0</data-type>
+    </column>
+    <column id="66" parent="41" name="Y">
+      <data-type>NUMBER(*)|0</data-type>
+    </column>
+    <column id="67" parent="41" name="BAIDU_X">
+      <data-type>NUMBER(*)|0</data-type>
+    </column>
+    <column id="68" parent="41" name="BAIDU_Y">
+      <data-type>NUMBER(*)|0</data-type>
+    </column>
+    <column id="69" parent="41" name="ADDRESS">
+      <data-type>VARCHAR2(225)|0</data-type>
+    </column>
+    <column id="70" parent="41" name="SERVICETIME">
+      <data-type>VARCHAR2(20)|0</data-type>
+    </column>
+    <index id="71" parent="41" name="PK_STATIONID">
+      <object-id>73366</object-id>
+      <created-timestamp>2018-10-03.22:37:38</created-timestamp>
+      <modified-timestamp>2018-10-03.22:37:38</modified-timestamp>
+      <columns>STATIONID</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+      <tablespace-name>USERS</tablespace-name>
+    </index>
+    <key id="72" parent="41" name="PK_STATIONID">
+      <modified-timestamp>2018-10-03.22:37:38</modified-timestamp>
+      <columns>STATIONID</columns>
+      <initially-deferred>1</initially-deferred>
+      <underlying-index>PK_STATIONID</underlying-index>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

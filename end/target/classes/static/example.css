@@ -1,0 +1,48 @@
+html,body,#wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.chart {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.axis path,.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.a {
+    fill: rgb(91, 55, 46);
+}
+
+.b {
+    fill: rgb(152, 67, 42);
+}
+
+.c {
+    fill: rgb(211, 80, 40);
+}
+
+.d{
+    fill:rgb(230, 108, 51);
+}
+
+.e{
+    fill: rgb(236, 143, 67);
+}
+
+.f{
+    fill: rgb(242, 177, 84);
+}
+
+.g{
+    fill:rgb(249, 212, 100);
+}
+
+.h{
+    fill:rgb(253, 236, 124);
+}

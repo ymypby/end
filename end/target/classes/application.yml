@@ -1,0 +1,17 @@
+# oracle
+    datasource:
+        url: jdbc:oracle:thin:@localhost:1521:orcl
+        username: C##YMYEND
+        password: 905795073
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
+                show_sql: true
+                hbm2ddl:
+                  auto: update
+            entitymanager:
+                packagesToScan: com.domain
+
+

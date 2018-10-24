@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Oracle - @localhost" uuid="c0d80a7f-c4d9-4ad2-ba1e-bc281753478e">
+      <database-info product="Oracle" version="Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production" jdbc-version="4.0" driver-name="Oracle JDBC driver" driver-version="12.1.0.2.0">
+        <extra-name-characters>$#</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>memory</secret-storage>
+      <user-name>C##YMYEND</user-name>
+      <introspection-scope>*:C##YMYEND,PUBLIC,SYS,SYSTEM</introspection-scope>
+      <resolve-scope>*:C##YMYEND,PUBLIC</resolve-scope>
+    </data-source>
+  </component>
+</project>

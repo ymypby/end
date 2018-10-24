@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>添加弧线</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZF6umbyfyuGU8uiritubUuv0vEwcPGGH"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+    <style type="text/css">
+        html,body{
+            width:100%;
+            height:100%;
+            margin:0;
+            overflow:hidden;
+            font-family:"微软雅黑";
+        }
+    </style>
+</head>
+<body>
+<div style="width:100%;height:100%;border:1px solid gray" id="container"></div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("container");
+    map.centerAndZoom(new BMap.Point(118.454, 32.955), 6);
+    map.enableScrollWheelZoom();
+    var beijingPosition=new BMap.Point(116.432045,39.910683),
+            hangzhouPosition=new BMap.Point(120.129721,30.314429),
+            taiwanPosition=new BMap.Point(121.491121,25.127053);
+    var points = [beijingPosition,hangzhouPosition];
+
+    var curve = new BMapLib.CurveLine(points, {strokeColor:"blue", strokeWeight:3, strokeOpacity:0.5}); //创建弧线对象
+    var points1 = curve.getPath();
+    var centerLng = (points1[15].lng+points1[16].lng)/2;
+    var centerLat = (points1[15].lat+points1[16].lat)/2;
+    var k = (points1[18].lng-points1[19].lng)/(points1[15].lat-points1[16].lat);
+    var centerPoint = new BMap.Point(centerLng,centerLat);
+    window.alert(Math.atan(k));
+    var vectorBCArrow = new BMap.Marker(points1[19], {
+        // 初始化方向向下的闭合箭头
+
+        icon: new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_CLOSED_ARROW, {
+            scale: 2,
+            strokeWeight: 1,
+            rotation: Math.atan(k)*180/Math.PI,
+            fillColor: 'gold',
+            fillOpacity: 0.8
+        })
+    });
+
+    map.addOverlay(vectorBCArrow );
+    map.addOverlay(curve); //添加到地图中
+    //curve.enableEditing(); //开启编辑功能
+</script>
