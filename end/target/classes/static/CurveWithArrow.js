@@ -91,8 +91,15 @@ function drawCurves(dataset,stationsMap){
             strokeWeight:weight,
             strokeOpacity:1
         };
+        var polygonOptions={
+            strokeOpacity:1,
+            strokeWeight:1,
+            strokeColor:color,
+            fillColor:color,
+            fillOpacity:1
+        };
         curve = new BMapLib.CurveLine([point1,point2], curveOptions);
-        arrow = addArrow(curve,curveOptions);
+        arrow = addArrow(curve,polygonOptions);
         curves.push(curve);
         arrows.push(arrow);
     }
@@ -140,6 +147,7 @@ function addArrow(lines,line_style) {
     }
     var pointArrow = map.pixelToPoint(new BMap.Pixel(pixelX, pixelY));
     var pointArrow1 = map.pixelToPoint(new BMap.Pixel(pixelX1, pixelY1));
-    var Arrow = new BMap.Polyline([pointArrow, linePoint[Math.ceil(middle)], pointArrow1], line_style);
+    var  Arrow = new BMap.Polygon([pointArrow, linePoint[Math.ceil(middle)], pointArrow1],line_style);
+    // var Arrow = new BMap.Polyline([pointArrow, linePoint[Math.ceil(middle)], pointArrow1], line_style);
     return Arrow;
 }

@@ -119,7 +119,7 @@ d3.gantt = function() {
     var drawMarks = function (tasks) {
         var rects = [];
         var circles = [];
-        var d1 = y.rangeBand()/2;
+        var d1 = "8px";
         for(var i=0;i<tasks.length;i++){
             if(tasks[i].mark == 1){
                 rects.push(tasks[i]);
@@ -132,21 +132,24 @@ d3.gantt = function() {
         circle.enter()
             .insert("circle",":first-child")
             .attr("r", function(d){
-                var s = x(d.endDate)-x(d.startDate);
-                if( s > d1 ){
-                    return d1/2;
-                }else{
-                    return s/4;
-                }
+                // var s = x(d.endDate)-x(d.startDate);
+                // if( s > d1 ){
+                //     return d1/2;
+                // }else{
+                //     return s/4;
+                // }
+                return 4;
             })
+            .attr("cx",4)
             .transition()
-            .attr("y",function(d){
-                var s = x(d.endDate)-x(d.startDate);
-                if( s > d1 ){
-                    return d1/2;
-                }else{
-                    return s/4;
-                }
+            .attr("cy",function(d){
+                // var s = x(d.endDate)-x(d.startDate);
+                // if( s > d1 ){
+                //     return d1/2;
+                // }else{
+                //     return s/4;
+                // }
+                return 12;
             } )
             .attr("transform", rectTransform)
             .style({
@@ -154,26 +157,27 @@ d3.gantt = function() {
             });
         rect.enter()
             .insert("rect",":first-child")
-            .attr("class",".littlerect")
+            .attr("class","littlerect")
             .attr("rx", 1)
             .attr("ry", 1)
             .transition()
             .attr("y", 0)
             .attr("transform", rectTransform)
             .attr("height", function(d) {
-                return y.rangeBand()/2; })
+                // return y.rangeBand()/2;
+                return d1;
+            })
             .attr("width", function(d) {
-                var s = x(d.endDate)-x(d.startDate);
-                if( s > d1){
-                    return d1;
-                }else {
-                    return s/2;
-                }
+                // var s = x(d.endDate)-x(d.startDate);
+                // if( s > d1){
+                //     return d1;
+                // }else {
+                //     return s/2;
+                // }
+                return d1;
             }).style({
-            'fill': 'blue',
+            'fill': 'blue'
             });
-         rect.exit().remove();
-         circle.exit().remove();
         // circle.transition()
         //     .attr("transform", rectTransform)
         //     .attr("height", function(d) { return y.rangeBand(); })
@@ -186,8 +190,10 @@ d3.gantt = function() {
 
         initTimeDomain();
         initAxis();
-        drawMarks(marks);
         var svg = d3.select("svg");
+        d3.selectAll("rect").remove();
+        d3.selectAll("circle").remove();
+        drawMarks(marks);
 
         var ganttChartGroup = svg.select(".gantt-chart");
         var rect = ganttChartGroup.selectAll(".bigrect").data(tasks, keyFunction);
